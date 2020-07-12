@@ -1,0 +1,15 @@
+version: "3.1"
+services:
+    webpack-cli:
+      image: my.webpack-cli
+      build:
+        context: .
+        dockerfile: ./Dockerfile
+      container_name: webpack-cli
+      working_dir: /app
+      command: tail -f /etc/hosts
+      ports:
+        - "8000:8000"
+        - "8080:8080"
+      volumes:
+        - ../:/app
